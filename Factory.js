@@ -40,10 +40,10 @@ var TeslaFactory = function () {
     this.engine = "Electric";
 };
 
-function init() {
+function client() {
     var factory = new Factory();
     factory.buildOrder("priusfactory");
     factory.buildOrder("volvofactory");
     factory.buildOrder("teslafactory");
 }
-init();
+client();

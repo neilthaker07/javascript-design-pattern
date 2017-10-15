@@ -16,11 +16,11 @@ var Singleton = (function () {
     };
 })();
  
-function init() {
+function client() {
     var instance1 = Singleton.getInstance();
     var instance2 = Singleton.getInstance();
     console.log(instance1);
     console.log(instance2);
 }
 
-init();
+client();

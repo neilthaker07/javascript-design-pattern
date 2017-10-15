@@ -1,24 +1,15 @@
-var Client = {
-  handleRequest: function(request){
-    var c1 = new ConcreteHandler1();
-    var c2 = new ConcreteHandler2();
-    var c3 = new ConcreteHandler3();
-
-    c1.setNext(c2).setNext(c3);
-    c1.handleRequest(request);
-  }
-}
-
 function ConcreteHandler1(){
     this.handleRequest = function(request){
       var next;
       if(request === 'R1'){
-        console.log(request+" => This one is mine!");
+        console.log(request+" => This one is mine, ConcreteHandler1!");
       }
-      
-      if(this.next!=null)
+      else
       {
-        this.next.handleRequest(request);
+        if(this.next!=null)
+        {
+          this.next.handleRequest(request);
+        }
       }
     }
 
@@ -32,12 +23,14 @@ function ConcreteHandler2(){
     this.handleRequest = function(request){
       var next;
       if(request === 'R2'){
-        console.log(request+" => This one is mine!");
+        console.log(request+" => This one is mine, ConcreteHandler2!");
       }
-
-      if(this.next!=null)
+      else
       {
-        this.next.handleRequest(request);
+        if(this.next!=null)
+        {
+          this.next.handleRequest(request);
+        }
       }
     }
 
@@ -51,12 +44,14 @@ function ConcreteHandler3(){
     this.handleRequest = function(request){
       var next;
       if(request === 'R3'){
-        console.log(request+" => This one is mine!");
+        console.log(request+" => This one is mine, ConcreteHandler3!");
       }
-
-      if(this.next!=null)
+      else
       {
-        this.next.handleRequest(request);
+        if(this.next!=null)
+        {
+          this.next.handleRequest(request);
+        }
       }
     }
 
@@ -64,6 +59,17 @@ function ConcreteHandler3(){
         this.next = next;
         return next;
     }
+}
+
+var Client = {
+  handleRequest: function(request){
+    var c1 = new ConcreteHandler1();
+    var c2 = new ConcreteHandler2();
+    var c3 = new ConcreteHandler3();
+
+    c1.setNext(c2).setNext(c3);
+    c1.handleRequest(request);
+  }
 }
 
 console.log( "Sending R2...");
